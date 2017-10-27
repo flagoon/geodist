@@ -1,0 +1,54 @@
+.add-city {
+  background-color: forestgreen;
+  color: white;
+  font-weight: bold;
+  border: 1px solid gray;
+  padding: 4px;
+  border-radius: 4px;
+  transition: all 0.5s
+}
+
+.add-city:hover {
+  background-color: darkgreen;
+  border-color: darkslategrey;
+}
+
+input {
+  width: 150px;
+  font-size: 0.8rem;
+
+}
+
+#main-cont {
+  position: absolute;
+}
+
+.city-cont {
+  display: block;
+  float: left;
+  max-width: 175px;
+  position: relative;
+  top: 0;
+}
+
+.suggest {
+  overflow-wrap: break-word;
+  font-size: 0.7rem;
+  overflow: hidden;
+}
+
+.span-city:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.show-distance {
+  position: relative;
+  padding: 5px;
+  border: 1px solid black;
+  top: 0;
+  background-color: lightslategray;
+  color: white;
+  text-align: left;
+  vertical-align: middle;
+}
