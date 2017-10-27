@@ -1,4 +1,11 @@
 $('document').ready(function () {
+
+  $('#button').on('click', function (e) {
+
+  });
+
+  $('input').on('focusout', hideButton);
+
   $('input').on('keyup', function (e) {
 
     var valCity = document.getElementById(e.target.id).value;
@@ -26,8 +33,27 @@ $('document').ready(function () {
       $('#suggest-' + aim).toggle();
 
       addValue(aim, getCity);
+      hideButton();
     }
   });
+
+  function hideButton() {
+    if (checkCity()) {
+      $('#button').removeClass('hide-dot');
+    } else {
+      $('#button').addClass('hide-dot');
+    }
+  }
+
+  function checkCity() {
+    var inputs = document.getElementsByClassName('input-content');
+    for (let i = 0; i < inputs.length; i++) {
+      if (inputs[i].value === '') {
+        return false;
+      }
+    }
+    return true;
+  }
 
   var arr = [[0,0], [0,0], [0,0], [0,0], [0,0]];
 
@@ -85,12 +111,12 @@ $('document').ready(function () {
   function showDistance(thisArr) {
     var distance = 0;
     var iterator = 0;
-    while (thisArr[iterator+3]) {
+    while (thisArr[iterator + 3]) {
 
-        //that was fun to write :) just one mistake.
-        var result = Math.sqrt(Math.pow((thisArr[iterator+4]-thisArr[iterator+1]),2) + Math.pow((thisArr[iterator+5]-thisArr[iterator+2]) * Math.cos((thisArr[iterator+1] * Math.PI)/180),2)) * 40075.704 / 360;
-        distance += result;
-      
+      //that was fun to write :) just one mistake.
+      var result = Math.sqrt(Math.pow((thisArr[iterator + 4]-thisArr[iterator + 1]),2) + Math.pow((thisArr[iterator + 5]-thisArr[iterator + 2]) * Math.cos((thisArr[iterator + 1] * Math.PI)/180),2)) * 40075.704 / 360;
+      distance += result;
+
       iterator += 3;
     }
     return (distance.toFixed(2) + 'km');

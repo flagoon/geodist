@@ -52,3 +52,67 @@ input {
   text-align: left;
   vertical-align: middle;
 }
+
+.mega-head {
+  display: block;
+  width: 200px;
+  position: relative;
+  top: 130px;
+  margin: 0 auto;
+  text-align: center;
+
+}
+
+.dot {
+  min-height: 6px;
+  min-width: 6px;
+  border-radius: 3px;
+  background-color: red;
+  position: absolute;
+}
+
+#dot-five {
+  top: 200px;
+  left: 200px;
+}
+
+#dot-four {
+  top: 397px;
+  left: 100px;
+}
+
+#dot-three {
+  top: 150px;
+  left: 397px;
+}
+
+#dot-two {
+  top: 315px;
+  left: -3px;
+}
+
+#dot-one {
+  top: -3px;
+  left: 112px;
+}
+
+.hide-dot {
+  display: none !important;
+}
+
+.mega-box {
+  position: relative;
+  top: 150px;
+  margin: 0 auto;
+  width: 400px;
+  height: 400px;
+  background-color: #ccc;
+}
+
+.button {
+  position: relative;
+  top: 170px;
+  margin: 0 auto;
+  display: block;
+  width: 200px;
+}
