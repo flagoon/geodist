@@ -1,10 +1,87 @@
 $('document').ready(function () {
 
-  $('#button').on('click', function (e) {
-
+  $('#button').on('click', function () {
+    countDistance(arr);
+    paintCities(arr);
   });
 
-  $('input').on('focusout', hideButton);
+  function paintCities(thisArr) {
+    var helpArr = ['one', 'two', 'three', 'four', 'five'];
+    for (var i = 0; i < thisArr.length; i++) {
+      if (typeof thisArr[i][0] === 'string') {
+        var posX = (((thisArr[i][2] * 100) - 1392) * 0.46);
+        var posY = (((thisArr[i][1] * 100) - 5497) * (-0.74));
+        var styleDot = {
+          top: posY + 'px',
+          left: posX + 'px'
+        };
+        var stylePet = {
+          top: posY + 'px',
+          left: parseFloat(posX + 5) + 'px'
+        };
+        var dot = $('#dot-' + helpArr[i]);
+        var pet = $('#p-' + helpArr[i]);
+        dot.css(styleDot);
+        pet.css(stylePet);
+        pet.text(thisArr[i][0]);
+        dot.removeClass('hide-dot');
+        pet.removeClass('hide-dot');
+      } else {
+        break;
+      }
+    }
+    console.log(thisArr);
+  }
+
+  function listCities(arr) {
+    var arrow = ' => ',
+        cityList = '';
+    for (var i = 0; i <= arr.length; i += 3) {
+      if (i === arr.length - 3) {
+        arrow = '';
+      } if (arr[i] === undefined) {
+        return cityList;
+      } else {
+        cityList += arr[i] + arrow;
+      }
+
+    }
+  }
+
+  function countDistance(cityArr) {
+    $('#mega-box').removeClass('hide-dot');
+    var latArr = [...cityArr];
+    var lngArr = [...cityArr];
+
+    latArr = sortArray(latArr, 1);
+    lngArr = sortArray(lngArr, 2);
+
+    //paintCities(latArr, lngArr);
+
+    latArr = remadeArray(latArr);
+    lngArr = remadeArray(lngArr);
+
+    if (latArr > lngArr) {
+      alert('Najkrótsza trasa prowadzi przez: ' + listCities(lngArr) + ' i wynosi: ' + showDistance(lngArr));
+    } else {
+      alert('Najkrótsza trasa prowadzi przez: ' + listCities(latArr) + ' i wynosi: ' + showDistance(lngArr));
+    }
+  }
+
+  function sortArray(arr, by) {
+    for (var i in arr) {
+      arr.sort(function (a, b) {
+        if (a[by] > b[by]) {
+          return 1;
+        } else if (a[by] < b[by]) {
+          return -1;
+        } else {
+          return 0;
+        }
+      });
+    }
+    return arr;
+  }
 
   $('input').on('keyup', function (e) {
 
@@ -33,21 +110,13 @@ $('document').ready(function () {
       $('#suggest-' + aim).toggle();
 
       addValue(aim, getCity);
-      hideButton();
+      $('#mega-box').addClass('hide-dot');
     }
   });
 
-  function hideButton() {
-    if (checkCity()) {
-      $('#button').removeClass('hide-dot');
-    } else {
-      $('#button').addClass('hide-dot');
-    }
-  }
-
   function checkCity() {
     var inputs = document.getElementsByClassName('input-content');
-    for (let i = 0; i < inputs.length; i++) {
+    for (var i = 0; i < inputs.length; i++) {
       if (inputs[i].value === '') {
         return false;
       }
@@ -85,13 +154,13 @@ $('document').ready(function () {
       arr[val][0] = city;
 
       var tempArr;
-      if (tempArr = checkDistance(arr)) {
+      if (tempArr = remadeArray(arr)) {
         document.getElementById('show-distance').value = showDistance(tempArr);
       }
     })
   }
 
-  function checkDistance(thisArr) {
+  function remadeArray(thisArr) {
     var counter = 0;
     var returnArr = [];
     $.each(thisArr, function (val, key) {

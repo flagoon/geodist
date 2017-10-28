@@ -10,7 +10,7 @@
 </head>
 <body>
 
-<input class="show-distance" id="show-distance" disabled autocomplete="off">
+<input class="show-distance" id="show-distance" disabled autocomplete="off" name="show-distance"><label for="show-distance">Suma kolejnych odległości</label>
 
 <div id="main-cont">
   <div id="city-one" class="city-cont">
@@ -47,16 +47,17 @@
 
     </div>
   </div>
+  <button type="button" id="button" class="button">Znajdź trasę</button>
 </div>
-<h2 class="mega-head">Pathfinder</h2>
-<div class="mega-box" id="mega-box">
-  <div id="dot-one" class="dot hide-dot"></div>
-  <div id="dot-two" class="dot hide-dot"></div>
-  <div id="dot-three" class="dot hide-dot"></div>
-  <div id="dot-four" class="dot hide-dot"></div>
-  <div id="dot-five" class="dot hide-dot"></div>
+<h2 class="mega-head hide-dot">Pathfinder</h2>
+<div class="mega-box hide-dot" id="mega-box">
+  <div id="dot-one" class="dot hide-dot"></div><p id="p-one" class="p-city hide-dot"></p>
+  <div id="dot-two" class="dot hide-dot"></div><p id="p-two" class="p-city hide-dot"></p>
+  <div id="dot-three" class="dot hide-dot"></div><p id="p-three" class="p-city hide-dot"></p>
+  <div id="dot-four" class="dot hide-dot"></div><p id="p-four" class="p-city hide-dot"></p>
+  <div id="dot-five" class="dot hide-dot"></div><p id="p-five" class="p-city hide-dot"></p>
 </div>
-<button type="button" id="button" class="button hide-dot">Znajdź trasę</button>
+
 
 <script
     src="https://code.jquery.com/jquery-3.2.1.min.js"
