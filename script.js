@@ -106,6 +106,7 @@ $('document').ready(function () {
       //decide which input should be a target
       var aim = e.target.getAttribute('aim');
       var getCity = e.target.getAttribute('value');
+      console.log(getCity);
       document.getElementById(aim).value = getCity;
       $('#suggest-' + aim).toggle();
 
@@ -113,16 +114,6 @@ $('document').ready(function () {
       $('#mega-box').addClass('hide-dot');
     }
   });
-
-  function checkCity() {
-    var inputs = document.getElementsByClassName('input-content');
-    for (var i = 0; i < inputs.length; i++) {
-      if (inputs[i].value === '') {
-        return false;
-      }
-    }
-    return true;
-  }
 
   var arr = [[0,0], [0,0], [0,0], [0,0], [0,0]];
 
@@ -155,7 +146,7 @@ $('document').ready(function () {
 
       var tempArr;
       if (tempArr = remadeArray(arr)) {
-        document.getElementById('show-distance').value = showDistance(tempArr);
+        $('#show-distance').value = showDistance(tempArr);
       }
     })
   }

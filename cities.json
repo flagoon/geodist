@@ -1911,7 +1911,7 @@
     "lng": 21.22,
     "lat": 51.98
   },
-  "Góra Świętej Małgorzaty 19°19'E": {
+  "Góra Świętej Małgorzaty": {
     "lng": 19.32,
     "lat": 52.05
   },
@@ -3411,7 +3411,7 @@
     "lng": 18.17,
     "lat": 54.77
   },
-  "Krościenko nad Dunajcem 20°25'E": {
+  "Krościenko nad Dunajcem": {
     "lng": 20.42,
     "lat": 49.43
   },
@@ -5395,7 +5395,7 @@
     "lng": 15.97,
     "lat": 53.63
   },
-  "Ostrowiec Świętokrzyski 21°23'E": {
+  "Ostrowiec Świętokrzyski": {
     "lng": 21.38,
     "lat": 50.85
   },
@@ -6795,7 +6795,7 @@
     "lng": 19.03,
     "lat": 50.3
   },
-  "Siemiątkowo Koziebródz. 20°01'E": {
+  "Siemiątkowo Koziebródz.": {
     "lng": 20.02,
     "lat": 52.88
   },
@@ -8295,7 +8295,7 @@
     "lng": 21.05,
     "lat": 52.28
   },
-  "Warszawa Praga Południe 21°10'E": {
+  "Warszawa Praga Południe": {
     "lng": 21.17,
     "lat": 52.2
   },
