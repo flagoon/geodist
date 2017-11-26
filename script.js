@@ -88,16 +88,30 @@ $('document').ready(function () {
     var valCity = document.getElementById(e.target.id).value;
     var suggestDiv = e.target.id;
 
-    $('#suggest-' + suggestDiv).show();
+    $('#suggest-' + suggestDiv).show().css('heigth', '100px');
 
-    var xmlhttp = new XMLHttpRequest();
-    xmlhttp.onreadystatechange = function () {
-      if (this.readyState === 4 && this.status === 200) {
-        document.getElementById('suggest-' + suggestDiv).innerHTML = this.responseText;
+    // lets try to use ajax instead
+
+    $.ajax({
+      url: 'find_city.php?city=' + valCity + '&cont=' + suggestDiv,
+      dataType: 'html',
+      type: 'get',
+      success: (data) => {
+        $('#suggest-' + suggestDiv).html = data;
+      },
+      beforeSend: (data) => {
+        $('#suggest-' + suggestDiv).html = 'Loading...';
       }
-    };
-    xmlhttp.open('GET', 'find_city.php?city=' + valCity + '&cont=' + suggestDiv, true);
-    xmlhttp.send();
+    });
+
+    // var xmlhttp = new XMLHttpRequest();
+    // xmlhttp.onreadystatechange = function () {
+    //   if (this.readyState === 4 && this.status === 200) {
+    //     document.getElementById('suggest-' + suggestDiv).innerHTML = this.responseText;
+    //   }
+    // };
+    // xmlhttp.open('GET', 'find_city.php?city=' + valCity + '&cont=' + suggestDiv, true);
+    // xmlhttp.send();
   });
 
   //function to add eventListeners to not existing (yet) elements
